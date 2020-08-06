@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">cursoavanzado</string>
+    <string name="cargando">Cargando</string>
+    <string name="Version">Version</string>
+    <string name="descripciondecontenido">Imagen de la app curso avanzado</string>
+    <string name="preparando">Preparando Aplicacion</string>
+    <string name="espere">Espere un momento</string>
+    <string name="accesar">accesar</string>
+    <string name="clave">calve</string>
+
+</resources>
