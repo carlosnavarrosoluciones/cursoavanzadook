@@ -9,6 +9,11 @@
     <string name="clave">calve</string>
     <string name="logout">Logout</string>
     <string name="about">Acerca de</string>
+    <string name="empresa">Soluciones Computacionales</string>
+    <string name="autor">Carlos navarro</string>
+    <string name="sigueme">sigueme en facebook:https://www.facebook.com/solcomputacionales/?ref=bookmarks</string>
+    <string name="app">Reporteador</string>
+    <string name="botonllmar">llamar</string>
 
 
 </resources>

@@ -1,17 +1,25 @@
 package com.solucionescomputacionales.cursoavanzado;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
+
+import static com.solucionescomputacionales.cursoavanzado.metodosglobales.obtenetversionapp;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar maintoolBar;
     Menu menuActivity;
     Context context;
+    ////objeto y utliidad para mostrar cuadro de dialogo
+    AlertDialog acercaDeDialogo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,9 +64,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(context,LoadActivity.class));
                 break;
             case  R.id.mainMenu_About:
-                Toast.makeText(this,"acerca de",Toast.LENGTH_SHORT).show();
+               ///se llama al metodo que trae al cuadro de dialogo
+                mostrarCuadroDialogoAcercaDe();
+
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+    //// se crea el metodo que llama e infla al cuadro de dialogo
+    private void mostrarCuadroDialogoAcercaDe(){
+       AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        ViewGroup parent=findViewById(R.id.parent);
+        View vista=getLayoutInflater().inflate(R.layout.acerca_de_dialogo,parent,false);
+        TextView txtVersion=vista.findViewById(R.id.txtDialogoVersion);
+        TextView txtSigueme=vista.findViewById(R.id.txtSigueme);
+        Linkify.addLinks(txtSigueme,Linkify.WEB_URLS);//SE USA PARA HACER LINKS AL TEXTO AY QUE HABILITAR EN CLIKABLE A TRUE
+        Button btnLlamar=vista.findViewById(R.id.btnLlamarVersion);///TODO falta codigo para realizar llamada
+        txtVersion.setText(obtenetversionapp(context));
+        builder.setView(vista);/// se configura la vista del buiolder
+        acercaDeDialogo=builder.create(); // se crea el cuadro de dialogo apartir del builder
+        acercaDeDialogo.show();// se muestra cuadro de dialogo
     }
 }
