@@ -46,7 +46,9 @@ public class LoadActivity extends AppCompatActivity {
             revisarPermisos();
 
     }
-    protected void onResume(){
+    @Override
+    protected void onResume() {
+        super.onResume();
         btnPermisos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
