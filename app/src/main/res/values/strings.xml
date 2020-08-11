@@ -14,6 +14,9 @@
     <string name="sigueme">sigueme en facebook:https://www.facebook.com/solcomputacionales/?ref=bookmarks</string>
     <string name="app">Reporteador</string>
     <string name="botonllmar">llamar</string>
+    <string name="permisos">Conceder Permisos</string>
+    <string name="alertaPermisos">Esta Aplicacion necesita ciertos permisos</string>
+
 
 
 </resources>
