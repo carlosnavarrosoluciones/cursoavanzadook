@@ -16,7 +16,7 @@
     <string name="botonllmar">llamar</string>
     <string name="permisos">Conceder Permisos</string>
     <string name="alertaPermisos">Esta Aplicacion necesita ciertos permisos</string>
-
-
+    <string name="leerQR">Leer Codigo</string>
+    <string name="codigoEscaneado">codigo Escaneado:</string>
 
 </resources>

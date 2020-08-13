@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.util.Objects;
 
 import static com.solucionescomputacionales.cursoavanzado.metodosglobales.obtenetversionapp;
+import static com.solucionescomputacionales.cursoavanzado.variablesglobales.codigoQR;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar maintoolBar;
     Menu menuActivity;
     Context context;
+    Button btnLeerQR;
+    TextView txtCodigoQr;
     ////objeto y utliidad para mostrar cuadro de dialogo
     AlertDialog acercaDeDialogo;
     @Override
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void configuracionesIniciales(){
         maintoolBar=findViewById(R.id.toolbarMain);
+        btnLeerQR=findViewById(R.id.btnLeerQR);
+        txtCodigoQr=findViewById(R.id.txtCodigoQR);
         /// se indica cual action bar se usa
         setSupportActionBar(maintoolBar);
        //para quitar el titulo del action Bar
@@ -44,6 +49,22 @@ public class MainActivity extends AppCompatActivity {
         context=MainActivity.this;
     }
     ///llamar los tres puntitos infla la vista del menu que diseñamos (main menu ademas se iguala el menuActivity a la vista inflada
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btnLeerQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context,QrActivity.class));
+            }
+        });
+        if (!codigoQR.isEmpty()){///compueraba que el dato este vacio
+            String codigoLeido=getString(R.string.codigoEscaneado)+ ""+codigoQR;
+            txtCodigoQr.setText(codigoLeido);
+
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
