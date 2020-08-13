@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
     private void configuracionesiniciales(){
         txtLoginVersion=findViewById(R.id.txtLoginVersion);
         edtUsuario=findViewById(R.id.edtUsuario);
-        edtPassword=findViewById(R.id.edtPassword);
+        edtPassword=findViewById(R.id.edtPasswordUsuario);
         btnaccesar=findViewById(R.id.btnaccesar);
         context=LoginActivity.this;
 

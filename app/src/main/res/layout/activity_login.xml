@@ -113,7 +113,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/edtPasswordUsuario"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:ems="10"

@@ -18,5 +18,7 @@
     <string name="alertaPermisos">Esta Aplicacion necesita ciertos permisos</string>
     <string name="leerQR">Leer Codigo</string>
     <string name="codigoEscaneado">codigo Escaneado:</string>
+    <string name="nombre">Nombre</string>
+    <string name="pass">password</string>
 
 </resources>
