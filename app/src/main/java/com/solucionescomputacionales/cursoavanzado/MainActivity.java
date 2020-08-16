@@ -21,6 +21,7 @@ import java.util.Objects;
 
 import static com.solucionescomputacionales.cursoavanzado.metodosglobales.obtenetversionapp;
 import static com.solucionescomputacionales.cursoavanzado.variablesglobales.codigoQR;
+import static com.solucionescomputacionales.cursoavanzado.variablesglobales.usuariosApp;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -91,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.mainMenu_AgregarUsuario:
                 startActivity(new Intent(context,AgregarUsuarioActivity.class));
+                break;
+
+            case R.id.mainMenu_VerUsuarios:
+                if (usuariosApp==null) {
+                    Toast.makeText(context, "No hay contenido que mostrar", Toast.LENGTH_SHORT).show();
+                }else {
+
+                    startActivity(new Intent(context, UsuariosActivity.class));
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);

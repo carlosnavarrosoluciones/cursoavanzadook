@@ -3,6 +3,10 @@
     <item
         android:id="@+id/mainMenu_AgregarUsuario"
         android:title="@string/agregarUsuario"/>
+    <item
+        android:id="@+id/mainMenu_VerUsuarios"
+        android:title="@string/verusuarios"/>
+
 
 
     <item

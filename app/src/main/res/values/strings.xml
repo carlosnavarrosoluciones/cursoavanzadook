@@ -21,5 +21,7 @@
     <string name="nombre">Nombre</string>
     <string name="pass">password</string>
     <string name="agregarUsuario">agregarUsuarios</string>
+    <string name="usuariosAPP">Usuarios de la App:</string>
+    <string name="verusuarios">Ver Usuarios:</string>
 
 </resources>
