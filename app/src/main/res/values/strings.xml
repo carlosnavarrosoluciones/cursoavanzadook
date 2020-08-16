@@ -20,5 +20,6 @@
     <string name="codigoEscaneado">codigo Escaneado:</string>
     <string name="nombre">Nombre</string>
     <string name="pass">password</string>
+    <string name="agregarUsuario">agregarUsuarios</string>
 
 </resources>

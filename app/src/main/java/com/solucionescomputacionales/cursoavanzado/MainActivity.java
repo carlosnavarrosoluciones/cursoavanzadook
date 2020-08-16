@@ -89,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
                 mostrarCuadroDialogoAcercaDe();
 
                 break;
+            case R.id.mainMenu_AgregarUsuario:
+                startActivity(new Intent(context,AgregarUsuarioActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

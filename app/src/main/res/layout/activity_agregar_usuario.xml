@@ -105,6 +105,7 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPersonName"
+        android:password="true"
         app:layout_constraintBottom_toTopOf="@+id/guideline36"
         app:layout_constraintEnd_toStartOf="@+id/guideline35"
         app:layout_constraintStart_toStartOf="@+id/guideline34"
@@ -153,6 +154,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/radioGroupRoles"
         android:layout_width="198dp"
         android:layout_height="97dp"
         android:gravity="center"
