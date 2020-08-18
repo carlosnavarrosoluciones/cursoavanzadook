@@ -43,6 +43,8 @@ public class listAdapter extends ArrayAdapter<usuario> {
             holder.txtCorreo = convertView.findViewById(R.id.txtListItemCorreo);
             holder.txtID = convertView.findViewById(R.id.txtListItemID);
             holder.txtRol = convertView.findViewById(R.id.txtListItemRol);
+
+
         }else{
             holder=(ViewHolder)convertView.getTag();
 
