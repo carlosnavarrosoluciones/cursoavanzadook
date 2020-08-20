@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.solucionescomputacionales.cursoavanzado.variablesglobales.usuariosApp;
+import static com.solucionescomputacionales.cursoavanzado.metodosglobales.agregarUsuarioABaseDeDatos;
 
 public class AgregarUsuarioActivity extends AppCompatActivity {
     //vistas
@@ -107,11 +108,8 @@ public class AgregarUsuarioActivity extends AppCompatActivity {
     }
     ///se crea procedimiento para captura de usuarios al registro
     private void agregarUsuario(String nombre, String password, String correo, String sexo, String rol){
-        if (usuariosApp == null){
-            usuariosApp=new ArrayList<>();///se inicializan el arreglo que se dio de alta en variables globales
-        }
-        usuariosApp.add(new usuario(id,nombre,password,sexo,rol,correo));////se agrega usuario al arreglo
-        id++; //se incrementa la variable id en 1 para que vaya incrementando el numero
+       usuario user=new usuario(0,nombre,password,sexo,rol,correo);
+        agregarUsuarioABaseDeDatos(context,user);
         mostrarToast("Usuario agregado correctamente!!!");
         startActivity(new Intent(context,MainActivity.class));
     }
@@ -129,55 +127,5 @@ public class AgregarUsuarioActivity extends AppCompatActivity {
         Toast.makeText(context,mensaje,Toast.LENGTH_SHORT).show();
     }
 
-    public static class listAdapter extends ArrayAdapter<usuario> {
-        private Context context;
-        private int layoutID;
-        private ArrayList<usuario> usuarios;
 
-        public listAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List<usuario> objects) {
-            super(context, resource, textViewResourceId, objects);
-            this.context=context;
-            this.layoutID=resource;
-            this.usuarios=new ArrayList<>(objects);
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            ViewHolder holder;
-            if (convertView==null) {
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(layoutID, null);
-
-                holder = new ViewHolder();
-                holder.imgIcono = convertView.findViewById(R.id.imgListItemGenero);
-                holder.txtNombre = convertView.findViewById(R.id.txtListItemNombre);
-                holder.txtCorreo = convertView.findViewById(R.id.txtListItemCorreo);
-                holder.txtID = convertView.findViewById(R.id.txtListItemID);
-                holder.txtRol = convertView.findViewById(R.id.txtListItemRol);
-            }else{
-                holder=(ViewHolder) convertView.getTag();
-
-            }
-            usuario usuario = usuarios.get(position);
-            if (usuario.getGenero().equals("masculino")) {
-                holder.imgIcono.setImageResource(R.mipmap.male);
-            }else if (usuario.getGenero().equals("femenino")){
-                holder.imgIcono.setImageResource(R.mipmap.female);
-
-            }else{
-                holder.imgIcono.setImageResource(R.mipmap.indeterminado);
-
-            }
-            holder.txtNombre.setText(usuario.getNombre());
-            holder.txtCorreo.setText(usuario.getCorreo());
-            holder.txtID.setText(String.valueOf(usuario.getId()));
-            holder.txtRol.setText(usuario.getRol());
-            return convertView;
-        }
-        public class ViewHolder{
-            ImageView imgIcono;
-            TextView txtNombre, txtCorreo, txtID, txtRol;
-        }
-    }
 }

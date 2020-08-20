@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
+import static com.solucionescomputacionales.cursoavanzado.metodosglobales.leerBaseDeDatos;
 import static com.solucionescomputacionales.cursoavanzado.metodosglobales.obtenetversionapp;
 import static com.solucionescomputacionales.cursoavanzado.variablesglobales.codigoQR;
 import static com.solucionescomputacionales.cursoavanzado.variablesglobales.usuariosApp;
@@ -95,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.mainMenu_VerUsuarios:
-                if (usuariosApp==null) {
+                leerBaseDeDatos(context);
+                if (usuariosApp.size()==0) {
                     Toast.makeText(context, "No hay contenido que mostrar", Toast.LENGTH_SHORT).show();
                 }else {
 

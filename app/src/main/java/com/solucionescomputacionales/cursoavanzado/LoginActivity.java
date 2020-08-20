@@ -11,8 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.solucionescomputacionales.cursoavanzado.variablesglobales.passwordTemporal;
-import static com.solucionescomputacionales.cursoavanzado.variablesglobales.usuarioTemporal;
+import static com.solucionescomputacionales.cursoavanzado.metodosglobales.leerBaseDeDatos;
+
+import static com.solucionescomputacionales.cursoavanzado.variablesglobales.passwordAdmin;
+import static com.solucionescomputacionales.cursoavanzado.variablesglobales.usuarioAdmin;
+import static com.solucionescomputacionales.cursoavanzado.variablesglobales.usuariosApp;
 
 public class LoginActivity extends AppCompatActivity {
     TextView txtLoginVersion;
@@ -43,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(context,"falta password",Toast.LENGTH_SHORT).show();
 
                 }else { //entra aqui si el usuario y password no estan vacios
-                    if (usuario.equals(usuarioTemporal)){
-                        if (password.equals(passwordTemporal)){
+                    if (usuarioExisteEnBaseDeDatos(usuario)|| usuario.equals(usuarioAdmin)){
+                        if (passwordExisteEnBaseDeDatos(password)|| password.equals(passwordAdmin)){
                             Toast.makeText(context,"Acceso Correcto",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(context,MainActivity.class));
                             myData mydata=new myData(context);//// dato para guardar usuario y no lo pida se puede omitir
@@ -62,6 +65,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    private boolean usuarioExisteEnBaseDeDatos(String usuarioIngresado){
+        leerBaseDeDatos(context);
+        for(usuario u: usuariosApp){
+            if (usuarioIngresado.equals(u.getNombre())){
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean passwordExisteEnBaseDeDatos(String passwordIngresaddo){
+        for (usuario u: usuariosApp){
+            if (passwordIngresaddo.equals(u.getPassword())){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /// se crea un metodo para las configuraciones iniciales
     private void configuracionesiniciales(){
